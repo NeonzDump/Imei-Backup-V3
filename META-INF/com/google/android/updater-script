@@ -1,0 +1,28 @@
+ui_print (" ");
+ui_print (" ");
+ui_print (" Imei Backup Script (via Recovery) for both Qualcomm and MTK");
+ui_print (" Thanks to mochi(@mochi_wwww) for idea");
+ui_print (" ");
+ui_print (" ");
+ui_print (" Taking Imei Backup.......");
+ui_print (" ");
+ui_print (" ");
+
+delete("/tmp/update-binary");
+package_extract_file("META-INF/com/google/android/update-binary", "/tmp/update-binary");
+package_extract_file("META-INF/com/tmp/backup.sh", "/tmp/backup.sh");
+set_perm(0, 0, 0777, "/tmp/backup.sh");
+run_program("/tmp/backup.sh", "");
+delete("/tmp/backup.sh");
+delete("/tmp/update-binary");
+
+ui_print (" Imei backup is done!");
+ui_print (" Imei backup is stored in /Internal-Storage/imeibackup ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" Created Flashable-IMEI-Backup.zip in Internal-Storage and in /Internal-Storage/imeibackup ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" Do not share imei backup with anyone under any circumstance and keep these files safe!");
+ui_print (" ");
+ui_print (" ");
